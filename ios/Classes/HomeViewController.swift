@@ -9,10 +9,10 @@ class HomeViewController: UIViewController, ImageScannerControllerDelegate {
     
     var saveTo: String = ""
     var canUseGallery: Bool = true
-    
     override func viewDidAppear(_ animated: Bool) {
         if self.isBeingPresented {
             cameraController = ImageScannerController()
+            cameraController.shouldPlaySound = false
             cameraController.imageScannerDelegate = self
 
             if #available(iOS 13.0, *) {
@@ -63,13 +63,6 @@ class HomeViewController: UIViewController, ImageScannerControllerDelegate {
         return button
     }()
         
-    @objc private func cancelImageScannerController() {
-        hideButtons()
-        
-        _result!(false)
-        cameraController?.dismiss(animated: true)
-        dismiss(animated: true)
-    }
     
     @objc func selectPhoto() {
         if let window = UIApplication.shared.keyWindow {
@@ -134,15 +127,7 @@ class HomeViewController: UIViewController, ImageScannerControllerDelegate {
         self.dismiss(animated: true)
     }
     
-    func imageScannerControllerDidCancel(_ scanner: ImageScannerController) {
-        // Your ViewController is responsible for dismissing the ImageScannerController
-        scanner.dismiss(animated: true)
-        self.hideButtons()
-        
-        _result!(false)
-        self.dismiss(animated: true)
-    }
-    
+ 
     func saveImage(image: UIImage) -> Bool? {
         
         guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
