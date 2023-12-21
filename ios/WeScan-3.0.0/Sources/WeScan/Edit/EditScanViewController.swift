@@ -145,11 +145,7 @@ final class EditScanViewController: UIViewController {
     }
 
     // MARK: - Actions
-    @objc func cancelButtonTapped() {
-        if let imageScannerController = navigationController as? ImageScannerController {
-            imageScannerController.imageScannerDelegate?.imageScannerControllerDidCancel(imageScannerController)
-        }
-    }
+
 
     @objc func pushReviewController() {
         guard let quad = quadView.quad,

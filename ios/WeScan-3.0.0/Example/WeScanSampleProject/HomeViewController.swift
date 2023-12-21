@@ -164,9 +164,7 @@ extension HomeViewController: ImageScannerControllerDelegate {
         scanner.dismiss(animated: true, completion: nil)
     }
 
-    func imageScannerControllerDidCancel(_ scanner: ImageScannerController) {
-        scanner.dismiss(animated: true, completion: nil)
-    }
+  
 
 }
 

@@ -80,13 +80,7 @@ class ScanPhotoViewController: UIViewController, ImageScannerControllerDelegate,
         self.dismiss(animated: true)
     }
     
-    
-    func imageScannerControllerDidCancel(_ scanner: ImageScannerController) {
-        // Your ViewController is responsible for dismissing the ImageScannerController
-        scanner.dismiss(animated: true)
-        _result!(false)
-        self.dismiss(animated: true)
-    }
+
     
     
     func saveImage(image: UIImage) -> String? {

@@ -35,13 +35,6 @@ public final class ScannerViewController: UIViewController {
         return button
     }()
 
-    private lazy var cancelButton: UIButton = {
-        let button = UIButton()
-        button.setTitle(NSLocalizedString("wescan.scanning.cancel", tableName: nil, bundle: Bundle(for: ScannerViewController.self), value: "Cancel", comment: "The cancel button"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(cancelImageScannerController), for: .touchUpInside)
-        return button
-    }()
 
     private lazy var autoScanButton: UIBarButtonItem = {
         let title = NSLocalizedString("wescan.scanning.auto", tableName: nil, bundle: Bundle(for: ScannerViewController.self), value: "Auto", comment: "The auto button state")
@@ -265,10 +258,7 @@ public final class ScannerViewController: UIViewController {
         }
     }
 
-    @objc private func cancelImageScannerController() {
-        guard let imageScannerController = navigationController as? ImageScannerController else { return }
-        imageScannerController.imageScannerDelegate?.imageScannerControllerDidCancel(imageScannerController)
-    }
+
 
 }
 

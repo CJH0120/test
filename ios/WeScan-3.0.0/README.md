@@ -89,11 +89,6 @@ func imageScannerController(_ scanner: ImageScannerController, didFinishScanning
     scanner.dismiss(animated: true)
 }
 
-func imageScannerControllerDidCancel(_ scanner: ImageScannerController) {
-    // The user tapped 'Cancel' on the scanner
-    // You are responsible for dismissing the ImageScannerController
-    scanner.dismiss(animated: true)
-}
 ```
 
 5. Finally, create and present a `ImageScannerController` instance somewhere within your view controller:
